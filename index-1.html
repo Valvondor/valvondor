@@ -1,0 +1,171 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1">
+<title>Valvondor</title>
+<link rel="stylesheet" href="style.css">
+
+<style>
+/* Oakhaven story reveal */
+.oak-story{padding:72px 18px;background:radial-gradient(circle at top,#24351f 0,#121712 48%,#090b09 100%);color:#f4ecd6;text-align:center;border-top:1px solid rgba(255,255,255,.08);border-bottom:1px solid rgba(255,255,255,.08)}
+.oak-story .eyebrow{letter-spacing:.22em;font-size:.75rem;color:#caa86b;font-weight:700;margin-bottom:8px}
+.oak-story h2{font-size:clamp(2rem,6vw,4rem);margin:0 0 10px;text-shadow:0 3px 14px #000}
+.oak-story .intro{max-width:720px;margin:0 auto 28px;color:#d8d1bd;line-height:1.6}
+.oak-book{max-width:980px;margin:auto;position:relative;min-height:500px;border:1px solid rgba(210,178,111,.35);border-radius:22px;overflow:hidden;background:#111;box-shadow:0 22px 70px rgba(0,0,0,.45)}
+.oak-stage{display:none;min-height:500px;position:relative;align-items:flex-end;justify-content:flex-start;text-align:left;background-image:linear-gradient(90deg,rgba(4,7,4,.92) 0%,rgba(4,7,4,.68) 44%,rgba(4,7,4,.18) 100%),url('world_oakhaven.jpg');background-size:cover;background-position:center}
+.oak-stage.active{display:flex;animation:oakFade .45s ease}
+.oak-stage:nth-child(2){background-position:42% center}.oak-stage:nth-child(3){background-position:55% center}.oak-stage:nth-child(4){background-position:65% center}.oak-stage:nth-child(5){background-position:75% center}
+@keyframes oakFade{from{opacity:.25;transform:scale(1.015)}to{opacity:1;transform:scale(1)}}
+.oak-copy{max-width:560px;padding:42px}
+.oak-chapter{display:inline-block;padding:6px 10px;border:1px solid #ad8d55;border-radius:999px;color:#e1bd77;font-size:.72rem;letter-spacing:.16em;font-weight:800;margin-bottom:12px;background:rgba(0,0,0,.28)}
+.oak-copy h3{font-size:clamp(1.8rem,4vw,3rem);margin:0 0 12px}.oak-copy p{font-size:1.04rem;line-height:1.7;color:#e3ddcb;margin:0}
+.oak-controls{display:flex;gap:10px;justify-content:center;align-items:center;margin-top:18px;flex-wrap:wrap}.oak-controls button,.oak-jump{border:1px solid #b9904f;background:#19150e;color:#f1d59b;padding:11px 16px;border-radius:999px;font-weight:800;cursor:pointer}.oak-controls button:disabled{opacity:.35;cursor:not-allowed}.oak-dots{display:flex;gap:8px}.oak-dot{width:9px;height:9px;border-radius:50%;background:#62563e}.oak-dot.active{background:#e0b866;box-shadow:0 0 12px rgba(224,184,102,.6)}
+.worldGrid article:first-child{position:relative;cursor:pointer}.worldGrid article:first-child:hover{transform:translateY(-2px)}
+.oak-modal{display:none;position:fixed;inset:0;z-index:9999;background:rgba(0,0,0,.86);backdrop-filter:blur(6px);padding:18px;overflow:auto}.oak-modal.open{display:flex;align-items:center;justify-content:center}.oak-modal-inner{width:min(980px,100%);position:relative}.oak-close{position:absolute;right:12px;top:12px;z-index:5;border:1px solid #b9904f;background:#17130d;color:#f1d59b;width:42px;height:42px;border-radius:50%;font-size:1.35rem;font-weight:900;cursor:pointer}.oak-modal .oak-story{padding:28px 10px;border:0;background:transparent}.oak-modal .oak-book{min-height:500px}.oak-modal .oak-stage{min-height:500px}
+@media(max-width:650px){.oak-story{padding:54px 12px}.oak-book,.oak-stage{min-height:560px}.oak-stage{background-image:linear-gradient(0deg,rgba(4,7,4,.96) 0%,rgba(4,7,4,.75) 58%,rgba(4,7,4,.18) 100%),url('world_oakhaven.jpg');align-items:flex-end}.oak-copy{padding:28px 24px}.oak-copy p{font-size:.98rem}}
+</style>
+</head>
+<body>
+<header class="top">
+  <div class="brandWrap">
+    <img src="wolf_logo.png" class="logo" alt="Valvondor wolf crest">
+    <div><div class="brand">VALVONDOR</div><div class="motto">SURVIVE · EXPLORE · CONQUER</div></div>
+  </div>
+  <nav>
+    <a href="#home">🏠 HOME</a>
+    <a href="#world">🧭 WORLD</a>
+    <a href="#features">⚔️ FEATURES</a>
+    <a href="#gallery">🖼️ GALLERY</a>
+    <a href="#updates">📜 UPDATES</a>
+  </nav>
+  <a class="discord small" href="https://discord.gg/PEN7QwKRdQ" target="_blank" rel="noopener">💬 JOIN DISCORD</a>
+</header>
+
+<main id="home">
+<section class="hero">
+  <img class="heroImg" src="hero_scene.jpg" alt="Valvondor world">
+  <div class="shade"></div>
+  <div class="heroText">
+    <img src="wolf_logo.png" class="heroWolf" alt="">
+    <h1>VALVONDOR</h1>
+    <div class="motto big">SURVIVE · EXPLORE · CONQUER</div>
+    <p>A 2D fantasy RPG. Build, craft, fish, fight, and uncover the secrets of Valvondor.</p>
+    <div class="heroBtns">
+      <a href="#play" class="btn play">▶ PLAY VALVONDOR</a>
+      <a href="https://discord.gg/PEN7QwKRdQ" target="_blank" rel="noopener" class="btn discord">💬 JOIN DISCORD</a>
+    </div>
+  </div>
+</section>
+
+<section id="features" class="features">
+  <div class="feature"><b>⚔️</b><h3>FIGHT</h3><p>Battle goblins, bandits & bosses</p></div>
+  <div class="feature"><b>⛏️</b><h3>GATHER</h3><p>Mine, chop, collect resources</p></div>
+  <div class="feature"><b>🎣</b><h3>FISH</h3><p>Relax and catch rare fish</p></div>
+  <div class="feature"><b>🏠</b><h3>BUILD</h3><p>Grow your home and town</p></div>
+  <div class="feature"><b>🗺️</b><h3>EXPLORE</h3><p>Discover forests, caves & dungeons</p></div>
+  <div class="feature"><b>🐾</b><h3>SURVIVE</h3><p>Eat, rest, and stay alive</p></div>
+</section>
+
+<section id="world" class="section">
+  <h2>THE WORLD</h2>
+  <div class="worldGrid">
+    <article id="oakhavenCard" role="button" tabindex="0" aria-label="Open the story of Oakhaven"><img src="world_oakhaven.jpg"><h3>OAKHAVEN</h3><p>Main town & home</p></article>
+    <article><img src="world_westwood.jpg"><h3>WESTWOOD</h3><p>Forest & goblins</p></article>
+    <article><img src="world_dungeon.jpg"><h3>CHIEFTAIN DUNGEON</h3><p>Face the Goblin Chieftain</p></article>
+    <article><img src="world_valley.jpg"><h3>THE VALLEY</h3><p>Mountains & adventures</p></article>
+  </div>
+</section>
+
+
+<div id="oakhavenModal" class="oak-modal" aria-hidden="true"><div class="oak-modal-inner"><button id="oakClose" class="oak-close" type="button" aria-label="Close Oakhaven story">×</button><section id="oakhaven-story" class="oak-story">
+  <div class="eyebrow">THE FOUNDING OF A HOME</div>
+  <h2>HOW OAKHAVEN BECAME</h2>
+  <p class="intro">Before the roads, shops, and walls, this place was only wilderness. Step through the moments that turned a lonely clearing into the town at the heart of Valvondor.</p>
+
+  <div class="oak-book" aria-live="polite">
+    <article class="oak-stage active">
+      <div class="oak-copy"><span class="oak-chapter">CHAPTER I</span><h3>Before Oakhaven</h3><p>Long before anyone called it home, the land was untamed woodland. Travelers passed through, but few stayed. The forest provided shelter, timber, and food — if you survived long enough to use them.</p></div>
+    </article>
+    <article class="oak-stage">
+      <div class="oak-copy"><span class="oak-chapter">CHAPTER II</span><h3>The First Fires</h3><p>A handful of settlers chose the clearing as a place to stop running. They raised rough shelters, cut the first paths through the trees, and kept a fire burning through the night. That small camp became the beginning of Oakhaven.</p></div>
+    </article>
+    <article class="oak-stage">
+      <div class="oak-copy"><span class="oak-chapter">CHAPTER III</span><h3>Brimvault</h3><p>When rich stone and ore were found beneath the nearby hills, everything changed. Miners came. Traders followed. What had been a camp became a village, and Oakhaven finally had something worth protecting.</p></div>
+    </article>
+    <article class="oak-stage">
+      <div class="oak-copy"><span class="oak-chapter">CHAPTER IV</span><h3>A Town Takes Shape</h3><p>The blacksmith fired his forge. The general store opened its doors. Homes crowded the growing roads, fences marked safe ground, and Oakhaven became a true town rather than a place travelers simply passed through.</p></div>
+    </article>
+    <article class="oak-stage">
+      <div class="oak-copy"><span class="oak-chapter">CHAPTER V</span><h3>Oakhaven Today</h3><p>The town survived hard winters, dangerous forests, and goblin attacks from the west. Now it stands as the first safe home for a new generation of adventurers. The town's history is written. Yours is about to begin.</p></div>
+    </article>
+  </div>
+
+  <div class="oak-controls">
+    <button id="oakPrev" type="button">← BACK</button>
+    <div class="oak-dots" aria-label="Oakhaven story progress"></div>
+    <button id="oakNext" type="button">NEXT →</button>
+  </div>
+</section></div></div>
+
+<section id="gallery" class="section">
+  <h2>IN DEVELOPMENT</h2>
+  <div class="devGrid">
+    <figure><img src="dev_oakhaven.jpg"><figcaption>Oakhaven</figcaption></figure>
+    <figure><img src="dev_westwood.jpg"><figcaption>Westwood Goblins</figcaption></figure>
+    <figure><img src="dev_dungeon.jpg"><figcaption>Chieftain Dungeon</figcaption></figure>
+    <figure><img src="dev_boss.jpg"><figcaption>Goblin Chieftain Boss</figcaption></figure>
+  </div>
+</section>
+
+<section id="updates" class="bottomGrid">
+  <div class="updateCard">
+    <div class="scroll">📜</div>
+    <div><h3>LATEST UPDATE</h3><span class="version">v8.01</span>
+    <ul><li>Westwood goblin overhaul</li><li>Goblin patrol system</li><li>New Chieftain dungeon design</li><li>Mobile build available</li></ul></div>
+  </div>
+  <div class="continue"><h3>THE ADVENTURE<br>CONTINUES...</h3><div class="paw">🐾</div></div>
+  <div class="community">
+    <h3>JOIN THE VALVONDOR COMMUNITY</h3>
+    <p>Get updates, share ideas, and be part of the journey.</p>
+    <a href="https://discord.gg/PEN7QwKRdQ" target="_blank" rel="noopener" class="btn discord">💬 JOIN DISCORD ↗</a>
+  </div>
+</section>
+
+<section id="play" class="playBox">
+  <h2>PLAY VALVONDOR</h2>
+  <p>The playable browser build will plug in here when we are ready to publish it.</p>
+  <button disabled>COMING SOON</button>
+</section>
+</main>
+
+<footer>© 2026 Valvondor · A WallyUnhinged project · Come Join the Pack 🐺</footer>
+
+<script>
+(() => {
+  const stages=[...document.querySelectorAll('.oak-stage')];
+  const dotsWrap=document.querySelector('.oak-dots');
+  const prev=document.getElementById('oakPrev');
+  const next=document.getElementById('oakNext');
+  const modal=document.getElementById('oakhavenModal');
+  const card=document.getElementById('oakhavenCard');
+  const close=document.getElementById('oakClose');
+  if(!stages.length) return;
+  let i=0;
+  stages.forEach((_,n)=>{const d=document.createElement('span');d.className='oak-dot'+(n===0?' active':'');dotsWrap.appendChild(d)});
+  const dots=[...dotsWrap.children];
+  function show(n){i=Math.max(0,Math.min(stages.length-1,n));stages.forEach((s,x)=>s.classList.toggle('active',x===i));dots.forEach((d,x)=>d.classList.toggle('active',x===i));prev.disabled=i===0;next.textContent=i===stages.length-1?'BEGIN YOUR STORY ⚔️':'NEXT →'}
+  function openStory(){show(0);modal.classList.add('open');modal.setAttribute('aria-hidden','false');document.body.style.overflow='hidden'}
+  function closeStory(){modal.classList.remove('open');modal.setAttribute('aria-hidden','true');document.body.style.overflow=''}
+  card.addEventListener('click',openStory);
+  card.addEventListener('keydown',e=>{if(e.key==='Enter'||e.key===' '){e.preventDefault();openStory()}});
+  close.addEventListener('click',closeStory);
+  modal.addEventListener('click',e=>{if(e.target===modal)closeStory()});
+  document.addEventListener('keydown',e=>{if(e.key==='Escape'&&modal.classList.contains('open'))closeStory()});
+  prev.addEventListener('click',()=>show(i-1));
+  next.addEventListener('click',()=>{if(i===stages.length-1){closeStory();location.hash='play'}else show(i+1)});
+  show(0);
+})();
+</script>
+</body>
+</html>
